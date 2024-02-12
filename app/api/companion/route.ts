@@ -1,6 +1,8 @@
-import prismadb from "@/lib/prismadb";
-import { currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+
+import prismadb from "@/lib/prismadb";
+
 
 export async function POST(req: Request) {
     try {
@@ -12,11 +14,10 @@ export async function POST(req: Request) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
 
-        if (!src || !name || !description || !instructions || !seed || categoryId) {
-            return new NextResponse("Missing required field", { status: 400 });
-        }
+        if (!src || !name || !description || !instructions || !seed || !categoryId) {
+            return new NextResponse("Missing required fields", { status: 400 });
+        };
 
-        // TODO: check for subscriptions
 
         const companion = await prismadb.companion.create({
             data: {
@@ -27,14 +28,13 @@ export async function POST(req: Request) {
                 name,
                 description,
                 instructions,
-                seed
+                seed,
             }
         });
 
         return NextResponse.json(companion);
-
     } catch (error) {
         console.log("[COMPANION_POST]", error);
         return new NextResponse("Internal Error", { status: 500 });
     }
-}
+};
