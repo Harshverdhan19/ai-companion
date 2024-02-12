@@ -18,7 +18,7 @@ MySQL installed locally or hosted instance
 Prisma CLI, which can be installed with npm install @prisma/cli --save-dev
 Installation
 Clone the repository:
-git clone https://github.com/Harsverdhan10/ai-companion.git
+git clone https://github.com/Harsverdhan19/ai-companion.git
 cd ai-companion-saas
 Install dependencies:
 npm install
