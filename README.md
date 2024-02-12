@@ -18,24 +18,16 @@ MySQL installed locally or hosted instance
 Prisma CLI, which can be installed with npm install @prisma/cli --save-dev
 Installation
 Clone the repository:
-bash
-Copy code
-git clone https://github.com/your-username/ai-companion-saas.git
+git clone https://github.com/Harsverdhan10/ai-companion.git
 cd ai-companion-saas
 Install dependencies:
-bash
-Copy code
 npm install
 Set up your environment variables:
 Copy the .env.example file to a new file named .env and fill in your Stripe API keys, database URL, and other configurations.
 
 Run the Prisma migrations:
-bash
-Copy code
 npx prisma migrate dev
 Start the development server:
-bash
-Copy code
 npm run dev
 The application should now be running on http://localhost:3000.
 
@@ -58,8 +50,7 @@ Create your Feature Branch (git checkout -b feature/AmazingFeature)
 Commit your Changes (git commit -m 'Add some AmazingFeature')
 Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
-License
-Distributed under the MIT License. See LICENSE.txt for more information.
+
 
 Contact
 Harshverdhan Shukla - www.linkedin.com/in/harshverdhan-shukla-006423160
