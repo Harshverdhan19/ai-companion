@@ -86,25 +86,27 @@ export const CompanionForm = ({
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             if (initialData) {
-                // Update Companion functionality
                 await axios.patch(`/api/companion/${initialData.id}`, values);
             } else {
-                // Create companion functionality
                 await axios.post("/api/companion", values);
-
-                toast({
-                    description: "Success."
-                });
-
-                router.refresh();
             }
+
+            toast({
+                description: "Success.",
+                duration: 3000,
+            });
+
+            router.refresh();
+            router.push("/");
+
         } catch (error) {
             toast({
                 variant: "destructive",
-                description: "Something went wrong",
+                description: "Something went wrong.",
+                duration: 3000,
             });
         }
-    }
+    };
 
 
     return (
